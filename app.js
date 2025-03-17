@@ -3,8 +3,9 @@
 let amigos = [];
 
 function limparCampo(){
-    amigoNome = document.getElementById('amigo');
+    let amigoNome = document.getElementById('amigo');
     amigoNome.value = '';
+
 };
 
 function adicionarAmigo(){
@@ -13,6 +14,17 @@ function adicionarAmigo(){
         alert("Por favor, insira um nome.")
     }else{
         amigos.push(amigoNome);
+        listaAmigos(amigos);
         limparCampo();
     }
+};
+
+function listaAmigos(amigos){
+    
+    let lista = document.getElementById("listaAmigos"); 
+    let n = amigos.length;
+    lista.innerHTML = '';
+    for (let i=0; i<n; i++){
+        lista.innerHTML += `<li>${amigos[i]}</li>`;
+    };
 };
